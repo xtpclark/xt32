@@ -48,18 +48,19 @@ install_prereqs()
         "ubuntu")
                 if [ $CODENAME = 'precise' ]; then
                    sudo echo "foreign-architecture i386" > /etc/dpkg/dpkg.cfg.d/multiarch 
-                   
+                 CASE=1 
+sudo apt-get -y update 
+             sudo apt-get -y install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 libkrb5-dev:i386 libexpat-dev:i386 libqtcore4:i386 libqt4-sql:i386 libpq-dev:i386 libqt4-gui:i386 libqt4-xml:i386
+
                 else
                 
                    sudo dpkg --add-architecture i386
-                
+sudo apt-get -y update
+             sudo apt-get -y install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 libkrb5-dev:i386 libexpat-dev:i386 libqtcore4:i386 libqt4-sql:i386 libpq-dev:i386 libqt4-gui:i386 libqt4-xml:i386
+
+
+                CASE=2
                 fi
-            
-             sudo apt-get update 
-             sudo apt-get install libc6:i386 libncurses5:i386 \ 
-             libstdc++6:i386 zlib1g:i386 libkrb5-dev:i386 libexpat-dev:i386 \
-             libqtcore4:i386 libqt4-sql:i386 libpq-dev:i386 
-            
                  RET=$?
                 
                 if [ $RET -eq 1 ]; then
@@ -94,4 +95,5 @@ install_prereqs()
 
 getdistro
 install_prereqs
+
 exit 0
