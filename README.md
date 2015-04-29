@@ -1,3 +1,3 @@
 # xt32
-32bit depends
-For xtuple client on ubuntu
+Install 32 bit dependencies for running xtuple clients on 64 bit ubuntu.
+
